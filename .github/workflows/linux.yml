@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev openssl
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -106,7 +106,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev openssl
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -144,7 +144,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev openssl
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
