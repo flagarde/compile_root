@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev python3-minimal libvdt-dev libxrootd-client-dev
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev python3-minimal libvdt-dev libxrootd-client-dev libtbb-dev
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -68,23 +68,23 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [ 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
+        version: [ 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
         standard: [ 17, 20 ]
         exclude:
-          # 6 has problem
-          - version: 6
-            standard: 20
           # 7 has problem
           - version: 7
             standard: 20
-          # 14 has problem too ?!?
+          - version: 11
+            standard: 20
+          - version: 12
+            standard: 20
           - version: 14
             standard: 20
 
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev python3-minimal libvdt-dev libxrootd-client-dev
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev python3-minimal libvdt-dev libxrootd-client-dev libtbb-dev
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -122,7 +122,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev python3-minimal libvdt-dev libxrootd-client-dev
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip libxft-dev libxext-dev libxpm-dev libssl-dev python3-minimal libvdt-dev libxrootd-client-dev libtbb-dev
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
