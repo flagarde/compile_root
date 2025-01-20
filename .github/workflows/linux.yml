@@ -67,7 +67,7 @@ jobs:
       - name: ⬇️ Install git
         run: apt-get update ; apt-get install --no-install-recommends -y git unzip
       - name: clone root
-        run: git clone --depth 1 --branch v6-34-02 https://github.com/root-project/root.git root
+        run: git clone --depth 1 --branch v6-34-02 https://github.com/root-project/root.git ./root
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -140,7 +140,7 @@ jobs:
       - name: ⬇️ Install git
         run: apt-get update ; apt-get install --no-install-recommends -y git unzip
       - name: clone root
-        run: git clone --depth 1 --branch v6-34-02 https://github.com/root-project/root.git root
+        run: git clone --depth 1 --branch v6-34-02 https://github.com/root-project/root.git ./root
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -178,7 +178,7 @@ jobs:
       - name: ⬇️ Install git
         run: apt-get update ; apt-get install --no-install-recommends -y git unzip
       - name: clone root
-        run: git clone --depth 1 --branch v6-34-02 https://github.com/root-project/root.git root
+        run: git clone --depth 1 --branch v6-34-02 https://github.com/root-project/root.git ./root
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
