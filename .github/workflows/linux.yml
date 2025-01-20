@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip xorg
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -59,7 +59,7 @@ jobs:
         with:
           path: .github/workflows
       - name: 🔧 Configure
-        run: cmake -S ${{ env.CMAKE_SOURCE_PREFIX }} -B ${{ env.CMAKE_BINARY_PREFIX }} -D CMAKE_BUILD_TYPE=${{ env.CMAKE_BUILD_TYPE }} -D CMAKE_CXX_STANDARD=${{ matrix.standard }} -D CMAKE_INSTALL_PREFIX=${{ env.CMAKE_INSTALL_PREFIX }} -D CPPTERMINAL_ENABLE_DOCS=OFF
+        run: cmake -S ${{ env.CMAKE_SOURCE_PREFIX }} -B ${{ env.CMAKE_BINARY_PREFIX }} -D CMAKE_BUILD_TYPE=${{ env.CMAKE_BUILD_TYPE }} -D CMAKE_CXX_STANDARD=${{ matrix.standard }} -D CMAKE_INSTALL_PREFIX=${{ env.CMAKE_INSTALL_PREFIX }} -D builtin_zlib=ON
       - name: ⚙️ Build
         run: cmake --build ${{ env.CMAKE_BINARY_PREFIX }} --config ${{ env.CMAKE_BUILD_TYPE }} --parallel ${{ env.CMAKE_NUMBER_JOBS }}
       - name: 🧪 Test
@@ -106,7 +106,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip xorg
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -124,7 +124,7 @@ jobs:
         with:
           path: .github/workflows
       - name: 🔧 Configure
-        run: cmake -S ${{ env.CMAKE_SOURCE_PREFIX }} -B ${{ env.CMAKE_BINARY_PREFIX }} -D CMAKE_BUILD_TYPE=${{ env.CMAKE_BUILD_TYPE }} -D CMAKE_CXX_STANDARD=${{ matrix.standard }} -D CMAKE_INSTALL_PREFIX=${{ env.CMAKE_INSTALL_PREFIX }} -D CPPTERMINAL_ENABLE_DOCS=OFF
+        run: cmake -S ${{ env.CMAKE_SOURCE_PREFIX }} -B ${{ env.CMAKE_BINARY_PREFIX }} -D CMAKE_BUILD_TYPE=${{ env.CMAKE_BUILD_TYPE }} -D CMAKE_CXX_STANDARD=${{ matrix.standard }} -D CMAKE_INSTALL_PREFIX=${{ env.CMAKE_INSTALL_PREFIX }} -D builtin_zlib=ON
       - name: ⚙️ Build
         run: cmake --build ${{ env.CMAKE_BINARY_PREFIX }} --config ${{ env.CMAKE_BUILD_TYPE }} --parallel ${{ env.CMAKE_NUMBER_JOBS }}
       - name: 🧪 Test
@@ -144,7 +144,7 @@ jobs:
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
       - name: ⬇️ Install git
-        run: apt-get update ; apt-get install --no-install-recommends -y git unzip
+        run: apt-get update ; apt-get install --no-install-recommends -y git unzip xorg
       - name: ⬇️ Setup CMake
         uses: lukka/get-cmake@latest
         with:
@@ -165,7 +165,7 @@ jobs:
         env:
           CC: icx
           CXX: icpx
-        run: . /opt/intel/oneapi/setvars.sh ; cmake -S ${{ env.CMAKE_SOURCE_PREFIX }} -B ${{ env.CMAKE_BINARY_PREFIX }} -D CMAKE_BUILD_TYPE=${{ env.CMAKE_BUILD_TYPE }} -D CMAKE_CXX_STANDARD=${{ matrix.standard }} -D CMAKE_INSTALL_PREFIX=${{ env.CMAKE_INSTALL_PREFIX }} -D CPPTERMINAL_ENABLE_DOCS=OFF
+        run: . /opt/intel/oneapi/setvars.sh ; cmake -S ${{ env.CMAKE_SOURCE_PREFIX }} -B ${{ env.CMAKE_BINARY_PREFIX }} -D CMAKE_BUILD_TYPE=${{ env.CMAKE_BUILD_TYPE }} -D CMAKE_CXX_STANDARD=${{ matrix.standard }} -D CMAKE_INSTALL_PREFIX=${{ env.CMAKE_INSTALL_PREFIX }} -D builtin_zlib=ON
       - name: ⚙️ Build
         run: cmake --build ${{ env.CMAKE_BINARY_PREFIX }} --config ${{ env.CMAKE_BUILD_TYPE }} --parallel ${{ env.CMAKE_NUMBER_JOBS }}
       - name: 🧪 Test
