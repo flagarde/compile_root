@@ -25,33 +25,9 @@ jobs:
       fail-fast: false
       matrix:
         # Before 4.7 there is no Non-static data member initializers that's bad!
-        version: [ 4.7, 4.8, 4.9, 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
-        standard: [ 11, 14, 17, 20 ]
+        version: [ 5, 6, 7, 8, 9, 10, 11, 12, 13 ]
+        standard: [ 17, 20 ]
         exclude:
-          # 4.6
-          - version: 4.6
-            standard: 14
-          - version: 4.6
-            standard: 17
-          - version: 4.6
-            standard: 20
-          # 4.7
-          - version: 4.7
-            standard: 14
-          - version: 4.7
-            standard: 17
-          - version: 4.7
-            standard: 20
-          # 4.8
-          - version: 4.8
-            standard: 17
-          - version: 4.8
-            standard: 20
-          # 4.9
-          - version: 4.9
-            standard: 17
-          - version: 4.9
-            standard: 20
           # 5
           - version: 5
             standard: 20
@@ -99,17 +75,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        version: [ 3.5, 3.6, 3.7, 3.8, 3.9, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
-        standard: [ 11, 14, 17, 20 ]
+        version: [ 3.6, 3.7, 3.8, 3.9, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 ]
+        standard: [ 17, 20 ]
         exclude:
-          # 3.5
-          # 3.5 is buggy with c++14,c++17, skip it for now
-          - version: 3.5
-            standard: 20
-          - version: 3.5
-            standard: 17
-          - version: 3.5
-            standard: 14
           # 3.6
           - version: 3.6
             standard: 20
@@ -171,7 +139,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        standard: [ 11, 14, 17, 20 ]
+        standard: [ 17, 20 ]
 
     steps:
       - uses: ammaraskar/gcc-problem-matcher@master
